@@ -6,10 +6,11 @@ import {
   getTicketbyID,
   updateTicket,
 } from "../controllers/ticketController.js";
+import { ticketDataValidate } from "../middlewares/validation.js";
 
 const router = express.Router();
 
-router.post("/createticket", createTicket);
+router.post("/createticket", ticketDataValidate, createTicket);
 router.get("/getalltickets", getAllTickets);
 router.get("/getticketbyid/:id", getTicketbyID);
 
